@@ -1,0 +1,21 @@
+span[selected="true"]{
+    background: green !important;
+}
+* {
+    margin: 0.5vw;
+    padding: 0.5vw;
+}
+
+.flex-row{
+    display:flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.flex-column{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}

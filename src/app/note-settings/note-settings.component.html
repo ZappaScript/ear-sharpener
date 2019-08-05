@@ -1,0 +1,16 @@
+<div [class]="'flex-row'">
+    <div [class]="'flex-column'">
+        <app-key [selected]='this.noteGameService.settings.notesAvailable' ></app-key>
+        <app-n-notes-selector></app-n-notes-selector>
+        <button (click)='start()'> Start </button>
+    </div>
+    <div [class]="'flex-column'">
+        <app-tempo-selector></app-tempo-selector>
+        app
+    </div>
+</div>
+
+    
+
+  
+

@@ -1,0 +1,53 @@
+.whiteKey {
+    width: 10vh;
+    height: 30vh;
+    background: #fff;
+
+    
+  }
+  
+  .whiteKey:hover:active {
+    background: #eee;
+  }
+  
+  .whiteKey:hover {
+    background: #f9f9f9;
+  }
+  
+  .blackKey {
+    background: #000;
+    z-index: 10;
+    width: 7vh;
+    height: 21vh;
+    margin: 0 0 0 -5vh;
+
+    
+  }
+  
+  .blackKey[selected="true"]{
+
+    background: mix(#000,green,30%);
+  
+  }
+  .whiteKey[selected="true"]{
+
+    background: mix(#fff,green,30%);
+  
+  }
+  
+  span{
+    position: relative;
+    float: left;
+    border-style: solid;
+    border-color: #000;
+    border-width: 2px 1px 2px 1px;
+    border-left-width: 1px;
+    border-radius: 0 0 4px 4px;
+    border-top-left-radius: 0px;
+    color: #ccc;
+    text-align: center;
+  }
+
+  .blackKey + .whiteKey {
+    margin-left: -3.5vh;
+  }

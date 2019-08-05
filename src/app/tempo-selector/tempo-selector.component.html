@@ -1,0 +1,24 @@
+<div class='tempo-input' >
+  <p> Tempo:</p>   
+  <input type="number" name="bpm" [ngModel]="tempo" (ngModelChange)="onTempoChange($event)" min="1" [formControl]="tempoControl">
+</div>
+<div class='inline'>
+  <div class="outer-tempo-button" [ngClass]="{selectedTempo: isTempoSelected('Custom')}">
+    <div class='tempo-button' ><p > Custom </p> </div>
+  </div>
+  <div class="outer-tempo-button" (click)="onTempoChange(92)" [ngClass]="{selectedTempo: isTempoSelected('Andante')}">
+    <div class='tempo-button' ><p >Andante</p></div>
+  </div>
+  <div class="outer-tempo-button" (click)="onTempoChange(114)" [ngClass]="{selectedTempo: isTempoSelected('Moderato')}">
+    <div class='tempo-button' ><p >Moderato</p>  </div>
+  </div>
+  <div class="outer-tempo-button" (click)="onTempoChange(138)" [ngClass]="{selectedTempo: isTempoSelected('Allegro')}">
+    <div class='tempo-button' ><p >Allegro</p>   </div>
+  </div>
+  <div class="outer-tempo-button" (click)="onTempoChange(166)" [ngClass]="{selectedTempo: isTempoSelected('Vivace')}">
+    <div class='tempo-button' ><p >Vivace</p></div>
+  </div>
+  <div class="outer-tempo-button" (click)="onTempoChange(184)" [ngClass]="{selectedTempo: isTempoSelected('Presto')}">
+    <div class='tempo-button' ><p >Presto</p></div>
+  </div>
+</div>

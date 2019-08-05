@@ -1,0 +1,31 @@
+.DA-Keyboardcontainer {
+    font: 16px Lucida Sans, Trebuchet MS, Tahoma, sans-serif;
+    color: #000;
+    padding: 20px;
+  }
+  
+  ul.DA-PianoKeyboard {
+    position: relative;
+    display: inline-block;
+    
+    cursor: pointer;
+    list-style-type: none;
+  }
+  
+  ul.DA-PianoKeyboard li {
+    position: relative;
+    float: left;
+    border-style: solid;
+    border-color: #000;
+    border-width: 2px 1px 2px 1px;
+    border-radius: 0 0 4px 4px;
+    color: #ccc;
+    text-align: center;
+  }
+
+  .correct{
+    color:green;
+  }
+  span{
+    color:red;
+  }
