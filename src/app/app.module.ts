@@ -14,7 +14,8 @@ import { ResultsComponent } from './results/results.component';
 import { NoteSettingsComponent } from './note-settings/note-settings.component';
 import { TempoSelectorComponent } from './tempo-selector/tempo-selector.component';
 import { NNotesSelectorComponent } from './n-notes-selector/n-notes-selector.component';
-
+import { TimePipe } from './time.pipe'
+import { FirstNoteOptsComponent } from './first-note-opts/first-note-opts.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,9 @@ import { NNotesSelectorComponent } from './n-notes-selector/n-notes-selector.com
     ResultsComponent,
     NoteSettingsComponent,
     TempoSelectorComponent,
-    NNotesSelectorComponent
+    NNotesSelectorComponent,
+    TimePipe,
+    FirstNoteOptsComponent
   ],
   imports: [
     BrowserModule,
