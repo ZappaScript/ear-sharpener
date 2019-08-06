@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable, Subject} from 'rxjs'
+import { Observable, Subject, interval} from 'rxjs'
 import { OscillatorService } from './oscillator.service';
+import { takeWhile, finalize } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -10,12 +11,13 @@ export class NoteGameService {
   accuraccy = 0;
   notesClicked: number[] = [];
   targetNotes: number[] = [];
+  timer = interval(1000);
 
   noteObserver: Observable<number>; 
   tempoObserver: Observable<number>;
   nNotesObserver: Observable<number>;
   timeUp: Subject<any> = new Subject();
-  settings: any = {tempo: 100, notesAvailable: new Set([0, 4, 7]), nNotes: 7 }
+  settings: any = {tempo: 100, notesAvailable: new Set([0, 4, 7]), nNotes: 7, time: 300 }
 
   constructor(private oscService: OscillatorService) {
 
@@ -25,6 +27,8 @@ export class NoteGameService {
     this.drawNotes()
     this.notesClicked.splice(0, this.settings.nNotes);
     this.oscService.playSequence(this.targetNotes, this.settings.tempo);
+    this.timer.pipe( takeWhile(() => this.settings.time >0 ), finalize(() => {console.log('Finalized');})).subscribe(
+      val => {this.settings.time--;console.log(val)});
     }
     
   getNextExcersice() {
