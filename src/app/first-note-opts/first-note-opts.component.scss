@@ -1,0 +1,35 @@
+.selected{
+    background: cyan !important;
+}
+.tempo-button{
+   
+    padding:0 0.5rem;
+    margin:1px;
+    background: lighten($color: #000000, $amount: 0.3);
+    --notchSize: 5px;
+    clip-path: polygon(calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)), 0 0);
+    color: green;
+}
+.outer-tempo-button{
+    display: flex;
+    margin: 0%;
+    padding:0%;
+
+    background: lighten($color: magenta, $amount: 0.1);
+   
+    --notchSize: 5px;
+    clip-path: polygon(calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)), 0 0);
+}
+.inline{
+    display:flex;
+    justify-content: space-around;
+     
+ }
+ :host{
+     text-align:center;
+ }
+
+ span{
+     display:flex;
+     margin-right:1vw;
+ }
