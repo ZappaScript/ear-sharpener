@@ -12,12 +12,14 @@ export class NoteGameService {
   notesClicked: number[] = [];
   targetNotes: number[] = [];
   timer = interval(1000);
-
+  majorCadence = false;
+  minorCadence = false;
+  showFirstNote = false;
   noteObserver: Observable<number>; 
   tempoObserver: Observable<number>;
   nNotesObserver: Observable<number>;
   timeUp: Subject<any> = new Subject();
-  settings: any = {tempo: 100, notesAvailable: new Set([0, 4, 7]), nNotes: 7, time: 300 }
+  settings: any = {tempo: 100, notesAvailable: new Set([0, 4, 7]), nNotes: 7, time: 60 }
 
   constructor(private oscService: OscillatorService) {
 
