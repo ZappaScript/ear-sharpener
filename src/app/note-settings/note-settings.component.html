@@ -8,13 +8,8 @@
         <app-tempo-selector></app-tempo-selector>
         <first-note-opts></first-note-opts>
         <div>
-            <p>Limit to:</p>
-            <div [class]="'flex-row'">
-                
-                <div>Some other thing</div>
-                <app-timer></app-timer>
+            <neon-div (clicked)='test($event)' [cssClass]='this.deletePlease' > <app-timer> </app-timer>  </neon-div>
         
-            </div>
         </div>
         
     </div>

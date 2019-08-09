@@ -1,10 +1,10 @@
 <div>
   <ng-container *ngFor="let note of notes; index as i;">
 
-  <span *ngIf='selected !== undefined; else elseBlock' [ngClass]="{blackKey: Type(note), whiteKey: !Type(note)}" [attr.selected]="selected.has(i)" (click)="onNoteClick(note)"></span>
+  <span *ngIf='selected !== undefined; else elseBlock' [ngClass]="{redKey: Type(note), blackKey: !Type(note)}" [attr.selected]="selected.has(i)" (click)="onNoteClick(note)"></span>
 
   <ng-template #elseBlock>
-      <span  [ngClass]="{blackKey: Type(note), whiteKey: !Type(note)}"  (click)="onNoteClick(note)"></span>
+      <span  [ngClass]="{redKey: Type(note), blackKey: !Type(note)}"  (click)="onNoteClick(note)"></span>
   </ng-template>
   
 </ng-container>

@@ -15,7 +15,10 @@ import { NoteSettingsComponent } from './note-settings/note-settings.component';
 import { TempoSelectorComponent } from './tempo-selector/tempo-selector.component';
 import { NNotesSelectorComponent } from './n-notes-selector/n-notes-selector.component';
 import { TimePipe } from './time.pipe'
-import { FirstNoteOptsComponent } from './first-note-opts/first-note-opts.component'
+import { FirstNoteOptsComponent } from './first-note-opts/first-note-opts.component';
+import { StopClickPropagationDirective } from './stop-click-propagation.directive';
+import { NeonDivComponent } from './neon-div/neon-div.component';
+import { LimitToComponent } from './limit-to/limit-to.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,10 @@ import { FirstNoteOptsComponent } from './first-note-opts/first-note-opts.compon
     TempoSelectorComponent,
     NNotesSelectorComponent,
     TimePipe,
-    FirstNoteOptsComponent
+    FirstNoteOptsComponent,
+    StopClickPropagationDirective,
+    NeonDivComponent,
+    LimitToComponent
   ],
   imports: [
     BrowserModule,

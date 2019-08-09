@@ -7,8 +7,8 @@ import { NoteSettingsComponent } from './note-settings/note-settings.component';
 
 const routes: Routes = [
   {
-    path:'',
-    redirectTo:'/notes/settings',
+    path: '',
+    redirectTo: '/notes/settings',
     pathMatch: 'full'
   },
   {

@@ -2,16 +2,16 @@
 <div class='inline'>
 
     <span>
-      <div class="outer-tempo-button" [ngClass]="{selected: this.noteGameService.majorCadence}">
-        <div class='tempo-button' (click)='onOptClick(1)' ><p > Play major cadence </p> </div>
+      <div class="outer-clip-div" [ngClass]="{selected: this.noteGameService.majorCadence}">
+        <div class='clip-div' (click)='onOptClick(1)' ><p > Play major cadence </p> </div>
       </div>
-      <div class="outer-tempo-button" [ngClass]="{selected: this.noteGameService.minorCadence}" >
-        <div class='tempo-button' (click)='onOptClick(2)'><p >Play minor cadence</p></div>
+      <div class="outer-clip-div" [ngClass]="{selected: this.noteGameService.minorCadence}" >
+        <div class='clip-div' (click)='onOptClick(2)'><p >Play minor cadence</p></div>
       </div>
       
     </span>
-    <div class="outer-tempo-button" [ngClass]="{selected: this.noteGameService.showFirstNote}">
-      <div class='tempo-button' (click)='onOptClick(3)'><p >Show first note</p>  </div>
+    <div class="outer-clip-div" [ngClass]="{selected: this.noteGameService.showFirstNote}">
+      <div class='clip-div' (click)='onOptClick(3)'><p >Show first note</p>  </div>
     </div>
     
 </div>

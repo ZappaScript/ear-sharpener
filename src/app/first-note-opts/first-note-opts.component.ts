@@ -9,7 +9,7 @@ import { NoteGameService } from '../note-game.service';
 })
 export class FirstNoteOptsComponent implements OnInit {
   
-  constructor(private noteGameService: NoteGameService) { }
+  constructor(public noteGameService: NoteGameService) { }
 
 
   ngOnInit() {

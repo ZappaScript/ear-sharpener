@@ -15,7 +15,8 @@ export class NoteSettingsComponent implements OnInit {
   @ViewChild(TempoSelectorComponent) tempo: TempoSelectorComponent;
   @ViewChild(NNotesSelectorComponent) nNotes: NNotesSelectorComponent;
   notes: number[];
-  constructor(private noteGameService: NoteGameService, private router: Router, private route: ActivatedRoute) { 
+  deletePlease = true;
+  constructor(public noteGameService: NoteGameService, private router: Router, private route: ActivatedRoute) { 
   }
 
   ngOnInit() {
@@ -31,5 +32,9 @@ export class NoteSettingsComponent implements OnInit {
 
       console.log(this.noteGameService.settings.notesAvailable.size)
   }
+  test(event:any){
+    this.deletePlease = !this.deletePlease;
+    console.log("gotcha")
 
+  }
 }

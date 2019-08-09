@@ -14,7 +14,7 @@ export class KeyboardComponent implements OnInit {
   @Input() opts: any = {nNotes:6};
   @ViewChild(KeyComponent) keys:KeyComponent;
   
-constructor(private noteGameService: NoteGameService, private router: Router,private route: ActivatedRoute) { 
+constructor(public noteGameService: NoteGameService, private router: Router,private route: ActivatedRoute) { 
 }
 
 ngOnInit() {

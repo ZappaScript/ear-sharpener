@@ -7,7 +7,7 @@ import { NoteGameService } from '../note-game.service';
   styleUrls: ['./timer.component.scss']
 })
 export class TimerComponent implements OnInit {
-  constructor( private noteGameService: NoteGameService ) {
+  constructor( public noteGameService: NoteGameService ) {
   
 
    }

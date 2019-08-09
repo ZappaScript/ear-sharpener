@@ -1,21 +1,21 @@
-.whiteKey {
+.blackKey {
     width: 10vh;
     height: 30vh;
-    background: #fff;
+    background: #000;
 
     
   }
   
-  .whiteKey:hover:active {
+  .blackKey:hover:active {
     background: #eee;
   }
   
-  .whiteKey:hover {
+  .blackKey:hover {
     background: #f9f9f9;
   }
   
-  .blackKey {
-    background: #000;
+  .redKey {
+    background: #F00;
     z-index: 10;
     width: 7vh;
     height: 21vh;
@@ -24,22 +24,18 @@
     
   }
   
-  .blackKey[selected="true"]{
+  * [selected="true"] {
 
-    background: mix(#000,green,30%);
-  
-  }
-  .whiteKey[selected="true"]{
-
-    background: mix(#fff,green,30%);
-  
+    outline:solid 5px #900090;
+    outline-offset: -5px;
+    
   }
   
   span{
     position: relative;
     float: left;
     border-style: solid;
-    border-color: #000;
+    border-color: #222;
     border-width: 2px 1px 2px 1px;
     border-left-width: 1px;
     border-radius: 0 0 4px 4px;
@@ -48,6 +44,6 @@
     text-align: center;
   }
 
-  .blackKey + .whiteKey {
+  .redKey + .blackKey {
     margin-left: -3.5vh;
   }

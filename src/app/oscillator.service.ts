@@ -6,40 +6,67 @@ import { MiscService } from './misc.service';
 })
 export class OscillatorService {
 
-  
-  context: AudioContext ;
-  gainNode: GainNode ;
-  osc = null
-  toClear = undefined
 
-    
+  context: AudioContext;
+  compressorNode: DynamicsCompressorNode;
+  osc = []
 
-  constructor(private miscService: MiscService ) { 
-    
+
+
+
+  constructor(private miscService: MiscService) {
+
     this.context = new window['AudioContext']();
-    this.gainNode = this.context.createGain();
-    this.gainNode.connect(this.context.destination);
+    this.compressorNode = this.context.createDynamicsCompressor();
+    
+    this.compressorNode.connect(this.context.destination);
+    Array.from({length:10}).forEach((_,i)=>{
+      console.log(i);
+      this.osc.push(this.context.createOscillator());
+      this.osc[this.osc.length - 1].start(this.context.currentTime);
+    });
     
     
+
+
+
+  }
+  async wait(ms) {
+    return new Promise(resolve => {
+
+      setTimeout(() => { resolve() }, ms);
+
+    });
+  }
+  async playChord(Chord, stop){
+    Chord.forEach((Note,i)=> {
+      this.osc[i].connect(this.compressorNode);
+      this.osc[i].frequency.value = this.miscService.notes(Note);
+    })
+    await this.wait(stop * 1000);
+    Chord.forEach((_, i) => {
+
+      this.osc[i].disconnect(this.compressorNode);
+    } )
+
+  }
+  async playNote(Note, stop) {
+    
+    this.osc[0].connect(this.compressorNode)
+    this.osc[0].frequency.value = this.miscService.notes(Note)
+    await this.wait(stop * 1000);
+    //this.osc[0].disconnect(this.compressorNode);
+    this.compressorNode.
+    this.osc[0].disconnect(this.compressorNode);
+
   }
 
-  playNote(Note,stop){
-    clearTimeout(this.toClear);
-   if (!this.osc) { this.osc = this.context.createOscillator();this.osc.start(this.context.currentTime ) }
-   this.osc.connect(this.gainNode)
-   this.osc.frequency.value = this.miscService.notes(Note)
-   
-   this.toClear = setTimeout(()=>{this.osc.disconnect(this.gainNode)},stop*1000)
-}
-playSequence(sequence: number[], tempo: number){
-  const length = 60 / tempo;
-  sequence.forEach((val, i) => {
-    console.log(i)
-    setTimeout(() => { this.playNote(val, length);}, i * length * 1000);
+  async playSequence(sequence: any[][], tempo: number) {
+    const length = 60 / tempo;
 
-  })
-
-}
-
-  
+    for (const val of sequence) {
+      Array.isArray(val) ? await this.playChord(val, length): ( val ==='rest' ? await this.wait(length*1000) :  await this.playNote(val, length) );
+      
+    }
+  }
 }
