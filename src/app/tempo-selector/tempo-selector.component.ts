@@ -1,6 +1,7 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
 import { Validators, FormControl } from '@angular/forms';
+import { NoteGameService } from '../note-game.service';
 
 @Component({
   selector: 'app-tempo-selector',
@@ -13,7 +14,9 @@ export class TempoSelectorComponent implements OnInit {
   tempoControl = new FormControl('', [Validators.min(1)]);
 
 
-  constructor() { }
+  constructor(public noteGameService: NoteGameService) { 
+    this.tempo = noteGameService.settings.tempo;
+  }
 
   ngOnInit() {
   }

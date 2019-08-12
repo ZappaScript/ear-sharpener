@@ -1,3 +1,4 @@
-<p>
-  limit-to works!
-</p>
+<div class='inline'>
+  <neon-div (clicked)='toggleExerciseLimit()' [cssClass]='this.noteGameService.exerciseLimit.active' > <exercise-counter></exercise-counter> </neon-div>
+  <neon-div (clicked)='toggleTimeLimit()' [cssClass]='this.noteGameService.timeLimit.active' > <app-timer> </app-timer>  </neon-div>
+</div>

@@ -56,7 +56,7 @@ export class OscillatorService {
     this.osc[0].frequency.value = this.miscService.notes(Note)
     await this.wait(stop * 1000);
     //this.osc[0].disconnect(this.compressorNode);
-    this.compressorNode.
+    
     this.osc[0].disconnect(this.compressorNode);
 
   }

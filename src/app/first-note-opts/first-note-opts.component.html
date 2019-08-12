@@ -1,17 +1,12 @@
 <p>Show first note or play cadence? :</p>
 <div class='inline'>
 
-    <span>
-      <div class="outer-clip-div" [ngClass]="{selected: this.noteGameService.majorCadence}">
-        <div class='clip-div' (click)='onOptClick(1)' ><p > Play major cadence </p> </div>
-      </div>
-      <div class="outer-clip-div" [ngClass]="{selected: this.noteGameService.minorCadence}" >
-        <div class='clip-div' (click)='onOptClick(2)'><p >Play minor cadence</p></div>
-      </div>
-      
-    </span>
-    <div class="outer-clip-div" [ngClass]="{selected: this.noteGameService.showFirstNote}">
-      <div class='clip-div' (click)='onOptClick(3)'><p >Show first note</p>  </div>
-    </div>
     
+      <span>
+        <neon-div (clicked)='onOptClick(1)' [cssClass]="this.noteGameService.majorCadence" ><p > Play major cadence </p></neon-div>
+        <neon-div (clicked)='onOptClick(2)' [cssClass]="this.noteGameService.minorCadence"><p > Play minor cadence </p></neon-div>
+      </span>
+      <neon-div (clicked)='onOptClick(3)' [cssClass]="this.noteGameService.showFirstNote"><p > Show first note </p></neon-div>
+      
+      
 </div>

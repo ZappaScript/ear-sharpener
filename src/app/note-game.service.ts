@@ -11,7 +11,8 @@ export class NoteGameService {
   accuraccy = 0;
   notesClicked: number[] = [];
   targetNotes: number[] = [];
-  timeLimit = false;
+  exerciseLimit = {value: 0, active: false};
+  timeLimit = {value: 0, active: false};
   timer = interval(1000);
   majorCadence = false;
   minorCadence = false;
@@ -23,13 +24,19 @@ export class NoteGameService {
   settings: any = { tempo: 100, notesAvailable: new Set([0, 4, 7]), nNotes: 7, time: 60 }
 
   constructor(private oscService: OscillatorService) {
-
+    const storage = window.localStorage;
+    
+    let s = JSON.parse(storage.getItem('settings'));
+    if(s !== null){
+     this.settings={ ...s, notesAvailable: new Set(s.notesAvailable) };
+     console.log(this.settings);
+    }
   }
 
   init() {
     this.drawNotes()
     this.notesClicked.splice(0, this.settings.nNotes);
-    
+
     this.oscService.playSequence(this.getCadence().concat(this.targetNotes), this.settings.tempo);
     this.timer.pipe(takeWhile(() => this.settings.time > 0), finalize(() => { console.log('Finalized'); })).subscribe(
       val => { this.settings.time--; console.log(val) });
@@ -39,7 +46,7 @@ export class NoteGameService {
     this.evaluate();
     this.drawNotes()
     this.notesClicked.splice(0, this.settings.nNotes);
-    
+
     console.log();
     this.oscService.playSequence(this.getCadence().concat(this.targetNotes), this.settings.tempo);
 
@@ -94,38 +101,43 @@ export class NoteGameService {
       }
     )
   }
-  getCadence(){
+  getCadence() {
     let drawFrom = []
     let ex = [];
-    if (this.majorCadence){ drawFrom.push('M');}
-    if (this.minorCadence){ drawFrom.push('m');}
-    switch(drawFrom.length){
+    if (this.majorCadence) { drawFrom.push('M'); }
+    if (this.minorCadence) { drawFrom.push('m'); }
+    switch (drawFrom.length) {
       case 0:
         return [];
-        
+
       case 1:
         ex = this.cadenceNotes(drawFrom[0]);
-        
+
         return ex;
-        
+
       case 2:
-      // Math.round(Math.random() + 1)
-        
+        // Math.round(Math.random() + 1)
+
         ex = this.cadenceNotes(drawFrom[Math.round(Math.random())]);
-        
-      
+
+
         return ex;
-        
+
     }
   }
   // should be moved to misc.service
-  cadenceNotes(cadenceType: string){
-    switch(cadenceType){
+  cadenceNotes(cadenceType: string) {
+    switch (cadenceType) {
       case 'm':
-        return [[0, 3, 7],[5, 8, 12], [7, 10, 14], [0, 3, 7],'rest']
+        return [[0, 3, 7], [5, 8, 12], [7, 10, 14], [0, 3, 7], 'rest']
       case 'M':
-        return [[0, 4, 7],[5, 9, 12], [7, 11, 14],[0, 4, 7],'rest']
+        return [[0, 4, 7], [5, 9, 12], [7, 11, 14], [0, 4, 7], 'rest']
     }
+
+  }
+  saveSettings(){
+    let storage = window.localStorage;
+    storage.setItem('settings', JSON.stringify({ ...this.settings, notesAvailable: Array.from(this.settings.notesAvailable) }));
 
   }
 }

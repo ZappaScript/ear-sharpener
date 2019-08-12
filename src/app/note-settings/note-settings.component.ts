@@ -27,6 +27,7 @@ export class NoteSettingsComponent implements OnInit {
   
   start(){
     if(this.noteGameService.settings.notesAvailable.size > 1){
+      this.noteGameService.saveSettings();
       this.router.navigate(['../game'],{ relativeTo: this.route})
     }
 

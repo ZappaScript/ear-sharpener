@@ -1,4 +1,4 @@
-<div class="timer" (click)='console.log("heard a click")'>
+<div class="timer">
   <div>{{noteGameService.settings.time | time}}</div>
   <div><button (click)="addMinutes(300)" stop-click-propagation > +5</button> </div>
   <div><button (click)="addMinutes(60)" stop-click-propagation > +1</button> </div>

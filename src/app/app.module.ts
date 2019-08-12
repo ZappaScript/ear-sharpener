@@ -18,7 +18,8 @@ import { TimePipe } from './time.pipe'
 import { FirstNoteOptsComponent } from './first-note-opts/first-note-opts.component';
 import { StopClickPropagationDirective } from './stop-click-propagation.directive';
 import { NeonDivComponent } from './neon-div/neon-div.component';
-import { LimitToComponent } from './limit-to/limit-to.component'
+import { LimitToComponent } from './limit-to/limit-to.component';
+import { ExerciseCounterComponent } from './exercise-counter/exercise-counter.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { LimitToComponent } from './limit-to/limit-to.component'
     FirstNoteOptsComponent,
     StopClickPropagationDirective,
     NeonDivComponent,
-    LimitToComponent
+    LimitToComponent,
+    ExerciseCounterComponent
   ],
   imports: [
     BrowserModule,
