@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { KeyboardComponent } from './keyboard.component';
 
@@ -6,7 +6,7 @@ describe('KeyboardComponent', () => {
   let component: KeyboardComponent;
   let fixture: ComponentFixture<KeyboardComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ KeyboardComponent ]
     })

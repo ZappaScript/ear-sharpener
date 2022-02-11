@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { NNotesSelectorComponent } from './n-notes-selector.component';
 
@@ -6,7 +6,7 @@ describe('NNotesSelectorComponent', () => {
   let component: NNotesSelectorComponent;
   let fixture: ComponentFixture<NNotesSelectorComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ NNotesSelectorComponent ]
     })
