@@ -11,9 +11,9 @@ import { NNotesSelectorComponent } from '../n-notes-selector/n-notes-selector.co
   styleUrls: ['./note-settings.component.scss']
 })
 export class NoteSettingsComponent implements OnInit {
-  @ViewChild(KeyComponent) keys: KeyComponent;
-  @ViewChild(TempoSelectorComponent) tempo: TempoSelectorComponent;
-  @ViewChild(NNotesSelectorComponent) nNotes: NNotesSelectorComponent;
+  @ViewChild(KeyComponent, { static: true }) keys: KeyComponent;
+  @ViewChild(TempoSelectorComponent, { static: true }) tempo: TempoSelectorComponent;
+  @ViewChild(NNotesSelectorComponent, { static: true }) nNotes: NNotesSelectorComponent;
   notes: number[];
   deletePlease = true;
   constructor(public noteGameService: NoteGameService, private router: Router, private route: ActivatedRoute) { 

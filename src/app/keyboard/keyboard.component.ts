@@ -12,7 +12,7 @@ import { KeyComponent } from '../key/key.component';
 })
 export class KeyboardComponent implements OnInit {
   @Input() opts: any = {nNotes:6};
-  @ViewChild(KeyComponent) keys:KeyComponent;
+  @ViewChild(KeyComponent, { static: true }) keys:KeyComponent;
   
 constructor(public noteGameService: NoteGameService, private router: Router,private route: ActivatedRoute) { 
 }
