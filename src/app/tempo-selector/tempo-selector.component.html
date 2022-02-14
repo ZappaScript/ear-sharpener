@@ -1,14 +1,12 @@
 <div class='tempo-input' >
-  <p> Tempo:</p>   
+  <p> Tempo:</p>
   <input type="number" name="bpm" [ngModel]="tempo" (ngModelChange)="onTempoChange($event)" min="1" [formControl]="tempoControl">
 </div>
 <div class='inline'>
-
-  <neon-div [cssClass]="isTempoSelected('Custom')"><p>Custom</p></neon-div>
-  <neon-div (clicked)="onTempoChange(92)" [cssClass]="isTempoSelected('Andante')"><p>Andante</p></neon-div>
-  <neon-div (clicked)="onTempoChange(114)" [cssClass]="isTempoSelected('Moderato')"><p>Moderato</p></neon-div>
-  <neon-div (clicked)="onTempoChange(138)" [cssClass]="isTempoSelected('Allegro')"><p>Allegro</p></neon-div>
-  <neon-div (clicked)="onTempoChange(166)" [cssClass]="isTempoSelected('Vivace')"><p>Vivace</p></neon-div>
-  <neon-div (clicked)="onTempoChange(184)" [cssClass]="isTempoSelected('Presto')"><p>Presto</p></neon-div>
-  
+  <neon-div [cssClass]="isTempoSelected(WellKnownTempi.Custom)"><p>Custom</p></neon-div>
+  <neon-div (clicked)="onTempoChange(WellKnownTempi.Andante)" [cssClass]="isTempoSelected(WellKnownTempi.Andante)"><p>Andante</p></neon-div>
+  <neon-div (clicked)="onTempoChange(WellKnownTempi.Moderato)" [cssClass]="isTempoSelected(WellKnownTempi.Moderato)"><p>Moderato</p></neon-div>
+  <neon-div (clicked)="onTempoChange(WellKnownTempi.Allegro)" [cssClass]="isTempoSelected(WellKnownTempi.Allegro)"><p>Allegro</p></neon-div>
+  <neon-div (clicked)="onTempoChange(WellKnownTempi.Vivace)" [cssClass]="isTempoSelected(WellKnownTempi.Vivace)"><p>Vivace</p></neon-div>
+  <neon-div (clicked)="onTempoChange(WellKnownTempi.Presto)" [cssClass]="isTempoSelected(WellKnownTempi.Presto)"><p>Presto</p></neon-div>
 </div>

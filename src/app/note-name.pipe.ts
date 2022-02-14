@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
   name: 'noteName'
@@ -6,35 +6,34 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class NoteNamePipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    switch (value){
+    switch (value) {
       case 0:
-      return 'Do';
+        return 'Do';
       case 1:
-      return 'Do#';
+        return 'Do#';
       case 2:
-      return 'Re';
+        return 'Re';
       case 3:
-      return 'Re#';
+        return 'Re#';
       case 4:
-      return 'Mi'
+        return 'Mi';
       case 5:
-      return 'Fa'
+        return 'Fa';
       case 6:
-      return 'Fa#'
+        return 'Fa#';
       case 7:
-      return 'Sol'
+        return 'Sol';
       case 8:
-      return 'Sol#'
+        return 'Sol#';
       case 9:
-      return 'La'
+        return 'La';
       case 10:
-      return 'La#'
+        return 'La#';
       case 11:
-      return 'Si'
+        return 'Si';
       default:
-      return 'Error'
+        return 'Error';
     }
-    return null;
   }
 
 }

@@ -1,4 +1,4 @@
-<div>
+<div class="key-container">
   <ng-container *ngFor="let note of notes; index as i;">
 
   <span *ngIf='selected !== undefined; else elseBlock' [ngClass]="{redKey: Type(note), blackKey: !Type(note)}" [attr.selected]="selected.has(i)" (click)="onNoteClick(note)"></span>
@@ -6,6 +6,6 @@
   <ng-template #elseBlock>
       <span  [ngClass]="{redKey: Type(note), blackKey: !Type(note)}"  (click)="onNoteClick(note)"></span>
   </ng-template>
-  
+
 </ng-container>
 </div>

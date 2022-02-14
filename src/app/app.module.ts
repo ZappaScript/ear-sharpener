@@ -19,7 +19,9 @@ import { FirstNoteOptsComponent } from './first-note-opts/first-note-opts.compon
 import { StopClickPropagationDirective } from './stop-click-propagation.directive';
 import { NeonDivComponent } from './neon-div/neon-div.component';
 import { LimitToComponent } from './limit-to/limit-to.component';
-import { ExerciseCounterComponent } from './exercise-counter/exercise-counter.component'
+import { ExerciseCounterComponent } from './exercise-counter/exercise-counter.component';
+import { Cadence } from './utils/Cadence';
+
 @NgModule({
   declarations: [
     AppComponent,

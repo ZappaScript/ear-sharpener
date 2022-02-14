@@ -1,12 +1,13 @@
 <p>Show first note or play cadence? :</p>
 <div class='inline'>
-
-    
       <span>
-        <neon-div (clicked)='onOptClick(1)' [cssClass]="this.noteGameService.majorCadence" ><p > Play major cadence </p></neon-div>
-        <neon-div (clicked)='onOptClick(2)' [cssClass]="this.noteGameService.minorCadence"><p > Play minor cadence </p></neon-div>
+        <neon-div (clicked)='setMajorCadence()'
+                  [cssClass]="this.noteGameService.isMajorCadence()"><p> Play major cadence </p></neon-div>
+        <neon-div (clicked)='setMinorCadence()'
+                  [cssClass]="this.noteGameService.isMinorCadence()"><p> Play minor cadence </p></neon-div>
       </span>
-      <neon-div (clicked)='onOptClick(3)' [cssClass]="this.noteGameService.showFirstNote"><p > Show first note </p></neon-div>
-      
-      
+  <neon-div (clicked)='onOptClick(3)' [cssClass]="this.noteGameService.showFirstNote"><p> Show first note </p>
+  </neon-div>
+
+
 </div>

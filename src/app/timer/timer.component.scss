@@ -1,3 +1,24 @@
+:host {
+  margin: 0.5rem;
+  width: 5rem;
+}
+
 * {
     color:green;
+}
+
+
+.T-add-time-button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.T_RemainingTime {
+  margin: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

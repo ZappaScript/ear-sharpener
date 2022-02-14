@@ -13,8 +13,8 @@ import { KeyComponent } from '../key/key.component';
 export class KeyboardComponent implements OnInit {
   @Input() opts: any = {nNotes:6};
   @ViewChild(KeyComponent, { static: true }) keys:KeyComponent;
-  
-constructor(public noteGameService: NoteGameService, private router: Router,private route: ActivatedRoute) { 
+
+constructor(public noteGameService: NoteGameService, private router: Router,private route: ActivatedRoute) {
 }
 
 ngOnInit() {
@@ -23,14 +23,14 @@ ngOnInit() {
   noteGameService.noteObserver = this.keys.noteClickedObservable();
   noteGameService.timeUp.subscribe(val => { this.router.navigate(['../results'],{relativeTo:this.route}); console.log('Keyboard received event notification');} );
   noteGameService.noteObserver.subscribe(val => {
-    
-    noteGameService.notesClicked.length < this.opts.nNotes ? noteGameService.notesClicked.push(val) : this.noteGameService.getNextExcersice();
+
+    noteGameService.notesClicked.length < this.opts.nNotes ? noteGameService.notesClicked.push(val) : this.noteGameService.getNextExercise();
   });
-  
+
   }
   repeatSequence(){
     this.noteGameService.repeatSequence();
   }
 
-  
+
 }

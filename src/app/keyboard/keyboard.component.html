@@ -1,28 +1,25 @@
-<ng-container *ngIf="this.noteGameService.notesClicked.length <= 1; else  elseBlock">
-  <div>
-    
-      <span>{{ this.noteGameService.targetNotes[0] | noteName }}</span>
-    
-  </div> 
-</ng-container>
-<ng-template #elseBlock>
-    <div>
-        <ng-container *ngFor="let note of this.noteGameService.notesClicked; index as i">
-          <span [ngClass]="{correct: this.noteGameService.targetNotes[i]==note}">{{ this.noteGameService.targetNotes[i] | noteName }}</span>
-        </ng-container>
-      </div> 
-</ng-template>    
-<div>
-      
+<div class="DA-ExerciseInfo">
+  <ng-container *ngIf="this.noteGameService.notesClicked.length <= 1; else  elseBlock">
+    <div >
 
-  <span>{{this.noteGameService.accuraccy /  this.noteGameService.totalExcersices | number:'1.1-2'}}%</span>
- 
-</div> 
-<ul class="DA-PianoKeyboard">
-  
-  <app-key ></app-key>
-  
-</ul>
-<span (click)='repeatSequence()'> 
+      <span>{{ this.noteGameService.targetNotes[0] | noteName }}</span>
+
+    </div>
+  </ng-container>
+  <ng-template #elseBlock>
+    <div>
+      <ng-container *ngFor="let note of this.noteGameService.notesClicked; index as i">
+        <span [ngClass]="{correct: this.noteGameService.targetNotes[i]==note}">{{ this.noteGameService.targetNotes[i] | noteName }}</span>
+      </ng-container>
+    </div>
+  </ng-template>
+
+  <span>{{this.noteGameService.accuracy /  this.noteGameService.totalExercises | number:'1.1-2'}}%</span>
+
+</div>
+
+  <app-key class="DA-PianoKeyboard"></app-key>
+
+<span class="DA-RepeatButton" (click)='repeatSequence()'>
   Play again
 </span>

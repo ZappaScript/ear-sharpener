@@ -1,7 +1,8 @@
-import { Component, OnInit, NgModule } from '@angular/core';
-import { Subject, Observable } from 'rxjs';
-import { Validators, FormControl } from '@angular/forms';
-import { NoteGameService } from '../note-game.service';
+import {Component, OnInit} from '@angular/core';
+import {Observable, Subject} from 'rxjs';
+import {FormControl, Validators} from '@angular/forms';
+import {NoteGameService} from '../note-game.service';
+import {Tempi, Tempo} from '../utils/Tempo';
 
 @Component({
   selector: 'app-tempo-selector',
@@ -14,35 +15,29 @@ export class TempoSelectorComponent implements OnInit {
   tempoControl = new FormControl('', [Validators.min(1)]);
 
 
-  constructor(public noteGameService: NoteGameService) { 
+  constructor(public noteGameService: NoteGameService) {
     this.tempo = noteGameService.settings.tempo;
   }
+
+  public WellKnownTempi = Tempi;
 
   ngOnInit() {
   }
 
-  
-  isTempoSelected(t: string){
-    switch (t){
-      case 'Andante':
-        return this.tempo <= 108 && this.tempo > 76;
-      case 'Moderato':
-        return this.tempo <= 120 && this.tempo > 108;
-      case 'Allegro':
-        return this.tempo <= 156 && this.tempo > 120;
-      case 'Vivace':
-        return this.tempo <= 176 && this.tempo > 156;
-      case 'Presto':
-        return this.tempo <= 200 && this.tempo > 176;
-      case 'Custom':
-        return this.tempo <= 76 || this.tempo > 200;
-      }
+  isTempoSelected(t: Tempo) {
+    return t.isInRange(this.tempo);
   }
-  onTempoChange(t: number) {
-    
-    this.tempo = t < 1 ? 1 : t;
-    this.selectedTempo.next(this.tempo);
+
+  onTempoChange(t: number | Tempo) {
+    if (typeof t === 'number') {
+      this.tempo = t < 1 ? 1 : t;
+      this.selectedTempo.next(this.tempo);
+    } else {
+      this.tempo = (t as Tempo).beatsPerMinute();
+      this.selectedTempo.next((t as Tempo).beatsPerMinute());
+    }
   }
+
   tempoSelectedObservable(): Observable<number> {
     return this.selectedTempo.asObservable();
   }
