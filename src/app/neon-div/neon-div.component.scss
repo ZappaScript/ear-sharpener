@@ -1,3 +1,13 @@
-.selected{
-    background:cyan !important;
+:host {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.selected {
+  background: cyan !important;
+}
+
+:host + :host {
+  margin: 0 1%;
 }

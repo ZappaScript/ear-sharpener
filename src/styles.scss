@@ -1,52 +1,71 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
-body{
-    background:lighten($color: #000000, $amount: 10%);
-    font-family: 'Orbitron', sans-serif;
+
+body {
+  background: lighten($color: #000000, $amount: 10%);
+  font-family: 'Orbitron', sans-serif;
 
 
 }
 
-p{
-    color:green;
-}
-.flex-row{
-    display:flex;
-    flex-direction: row;
-    flex: 1;
+p {
+  color: green;
 }
 
-.flex-column{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
 }
 
-.clip-div{
-   
-    padding:0 0.5rem;
-    margin:1px;
-    background: lighten($color: #000000, $amount: 0.3);
-    --notchSize: 5px;
-    clip-path: polygon(calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)), 0 0);
-    color: green;
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+.clip-div [header]{
+  height: auto;
+  flex: 0.2;
+  margin: 0.25rem;
 }
 
-.outer-clip-div{
-    display: flex;
-    margin: 0%;
-    padding:0%;
-
-    background: lighten($color: magenta, $amount: 0.1);
-   
-    --notchSize: 5px;
-    clip-path: polygon(calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)), 0 0);
+.clip-div  > :not([header]) {
+  flex: 1;
 }
 
-.inline{
-    display:flex;
-    justify-content: space-around;
-     
- }
+.clip-div {
+  padding: 0.25rem;
+  margin: 1px;
+  background: lighten($color: #000000, $amount: 0.3);
+  --notchSize: 5px;
+  clip-path: polygon(calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)), 0 0);
+  color: green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.outer-clip-div {
+  display: flex;
+  margin: 0%;
+  padding: 0%;
+
+
+  background: lighten($color: magenta, $amount: 0.1);
+
+  --notchSize: 5px;
+  clip-path: polygon(calc(100% - var(--notchSize)) 0%, 100% var(--notchSize), 100% 100%, var(--notchSize) 100%, 0% calc(100% - var(--notchSize)), 0 0);
+}
+
+.inline {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+neon-div + neon-div {
+  margin-left: 2%;
+}

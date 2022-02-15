@@ -1,4 +1,8 @@
 <div class='inline'>
-  <neon-div (clicked)='toggleExerciseLimit()' [cssClass]='this.noteGameService.exerciseLimit.active' > <exercise-counter></exercise-counter> </neon-div>
-  <neon-div (clicked)='toggleTimeLimit()' [cssClass]='this.noteGameService.timeLimit.active' > <app-timer> </app-timer>  </neon-div>
+  <div>
+    <neon-div selectable (clicked)='toggleExerciseLimit()' [cssClass]='this.noteGameService.exerciseLimit.active' > <span header>Exercise Limit</span> <exercise-counter></exercise-counter> </neon-div>
+  </div>
+  <div>
+    <neon-div selectable (clicked)='toggleTimeLimit()' [cssClass]='this.noteGameService.timeLimit.active' > <span header>Time Limit</span> <app-timer> </app-timer>  </neon-div>
+  </div>
 </div>

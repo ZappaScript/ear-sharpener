@@ -1,0 +1,10 @@
+:host, .inline {
+  min-width: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+:host {
+  justify-content: center;
+
+}

@@ -21,6 +21,7 @@ import { NeonDivComponent } from './neon-div/neon-div.component';
 import { LimitToComponent } from './limit-to/limit-to.component';
 import { ExerciseCounterComponent } from './exercise-counter/exercise-counter.component';
 import { Cadence } from './utils/Cadence';
+import { SelectableDirective } from './selectable.directive';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { Cadence } from './utils/Cadence';
     StopClickPropagationDirective,
     NeonDivComponent,
     LimitToComponent,
-    ExerciseCounterComponent
+    ExerciseCounterComponent,
+    SelectableDirective
   ],
   imports: [
     BrowserModule,
