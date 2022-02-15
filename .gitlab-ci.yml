@@ -17,7 +17,7 @@ before_script:
 pages:
   stage: deploy
   script:
-    - npx ng build --prod --base-href=/about-page/
+    - npx ng build --prod --base-href=/ear-sharpener/
     - echo "$(ls -la)"
     - mkdir public
     - cp -r dist/MusicTrainer/* public
