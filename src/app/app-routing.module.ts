@@ -1,38 +1,44 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { NoteGameComponent } from './note-game/note-game.component';
-import { GameComponent } from './game/game.component';
-import { ResultsComponent } from './results/results.component';
-import { NoteSettingsComponent } from './note-settings/note-settings.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {NoteGameComponent} from './note-game/note-game.component';
+import {GameComponent} from './game/game.component';
+import {ResultsComponent} from './results/results.component';
+import {NoteSettingsComponent} from './note-settings/note-settings.component';
+import {LandingPageComponent} from './landing/landing-page/landing-page.component';
 
 const routes: Routes = [
   {
     path: '',
+    component: LandingPageComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'game',
     redirectTo: '/notes/settings',
     pathMatch: 'full'
   },
   {
-    
-    path:'notes',
+    path: 'notes',
     component: NoteGameComponent,
     children: [
       {
-        path:'settings',
+        path: 'settings',
         component: NoteSettingsComponent
       },
       {
-      path:'game',
-      component: GameComponent
-    },
-    {path:'results', component:ResultsComponent}
-  ]
+        path: 'game',
+        component: GameComponent
+      },
+      {path: 'results', component: ResultsComponent}
+    ]
 
   }
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes, {relativeLinkResolution: 'legacy'})],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

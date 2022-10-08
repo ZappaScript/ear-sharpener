@@ -22,6 +22,8 @@ import { LimitToComponent } from './limit-to/limit-to.component';
 import { ExerciseCounterComponent } from './exercise-counter/exercise-counter.component';
 import { Cadence } from './utils/Cadence';
 import { SelectableDirective } from './selectable.directive';
+import { SimpleKeyboardContainerComponent } from './keyboard-container/simple-keyboard-container.component';
+import { LandingPageComponent } from './landing/landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { SelectableDirective } from './selectable.directive';
     NeonDivComponent,
     LimitToComponent,
     ExerciseCounterComponent,
-    SelectableDirective
+    SelectableDirective,
+    SimpleKeyboardContainerComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

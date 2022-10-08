@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Subject } from 'rxjs';
+import {Component, Input, OnInit} from '@angular/core';
+import {Subject} from 'rxjs';
 
 @Component({
   selector: 'app-key',
@@ -8,28 +8,26 @@ import { Subject } from 'rxjs';
 })
 export class KeyComponent implements OnInit {
   notes: number[] = Array.from({length: 12}, (_, i) => i);
-  noteClicked : Subject<number> = new Subject();
+  noteClicked: Subject<number> = new Subject();
   @Input() selected: boolean[];
- 
-  constructor() { }
 
-  ngOnInit() {}
-
-  Type(note: number ) {
-    
-    if(note === 1 || note === 3 || note === 6 || note === 8 || note === 10 ){
-      //Black Key
-      return true;
-    }
-    //White Key;
-    return false;
+  constructor() {
   }
-  onNoteClick(note: number){
-    
-    console.log(note);
+
+  ngOnInit() {
+  }
+
+  Type(note: number) {
+
+    return note === 1 || note === 3 || note === 6 || note === 8 || note === 10;
+
+  }
+
+  onNoteClick(note: number) {
     this.noteClicked.next(note);
   }
-  noteClickedObservable(){
+
+  noteClickedObservable() {
     return this.noteClicked.asObservable();
   }
 }

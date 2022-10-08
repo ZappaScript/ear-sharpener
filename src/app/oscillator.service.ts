@@ -18,7 +18,7 @@ export class OscillatorService {
     this.compressorNode = this.context.createDynamicsCompressor();
     this.compressorNode.connect(this.context.destination);
     Array.from({length: 10}).forEach((_, i) => {
-      console.log(i);
+
       this.osc.push(this.context.createOscillator());
       this.osc[this.osc.length - 1].start(this.context.currentTime);
     });
